@@ -43,7 +43,7 @@ def superm2(image):
     Somewhat clunky at the moment -- first you 
     must comment out the last two lines: the 
     call to `draw` and `cv2.imshow` and uncomment
-    `hex` call. This will show a 3d histogram, where
+    `hex` call. This will show a 3d hisftogram, where
     bright orange/red is the maximum (most voted for
     line of symmetry). Manually get the coordinates,
     and re-run but this time uncomment draw/imshow."""
@@ -102,6 +102,8 @@ def superm2(image):
                     image[y][x] = 255
 
     img3 = cv2.drawMatches(image, kp1, mimage, kp2, good[:15], None, flags=2)
+    ma=np.where(np.amax(img3))
+    print(type(img3))
     # print(*(m.distance for m in matches[:10]))
     # cv2.imshow('a',img3); cv2.waitKey(0);
     def hex():
